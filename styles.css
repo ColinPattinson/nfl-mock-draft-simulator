@@ -174,3 +174,17 @@ button, input, select { font: inherit; }
   .hero { flex-direction: column; align-items: flex-start; }
   .prospect-grid { grid-template-columns: 1fr; }
 }
+
+.player-placeholder {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(96,165,250,0.42), rgba(103,232,249,0.18));
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
