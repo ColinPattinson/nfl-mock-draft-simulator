@@ -26,34 +26,62 @@ const POSITION_COLOURS = {
   S: 'position-s'
 };
 
-const els = {
-  currentPick: document.getElementById('current-pick'),
-  queue: document.getElementById('pick-queue'),
-  drafted: document.getElementById('drafted-list'),
-  prospectGrid: document.getElementById('prospect-grid'),
-  search: document.getElementById('player-search'),
-  position: document.getElementById('position-filter'),
-  school: document.getElementById('school-filter'),
-  availableCount: document.getElementById('available-count'),
-  draftedCount: document.getElementById('drafted-count'),
-  reset: document.getElementById('reset-draft'),
-  undo: document.getElementById('undo-pick')
-};
+const els = {};
+
+function cacheElements() {
+  els.currentPick = document.getElementById('current-pick');
+  els.queue = document.getElementById('pick-queue');
+  els.drafted = document.getElementById('drafted-list');
+  els.prospectGrid = document.getElementById('prospect-grid');
+  els.search = document.getElementById('player-search');
+  els.position = document.getElementById('position-filter');
+  els.school = document.getElementById('school-filter');
+  els.availableCount = document.getElementById('available-count');
+  els.draftedCount = document.getElementById('drafted-count');
+  els.reset = document.getElementById('reset-draft');
+  els.undo = document.getElementById('undo-pick');
+}
+
+function showFatalError(message) {
+  if (els.prospectGrid) {
+    els.prospectGrid.innerHTML = `
+      <div class="empty-state">
+        <strong>App error</strong><br>
+        ${message}
+      </div>
+    `;
+  }
+}
 
 async function loadData() {
-  const [teamsRes, prospectsRes] = await Promise.all([
-    fetch('./data/teams.json'),
-    fetch('./data/prospects.json')
-  ]);
+  try {
+    const [teamsRes, prospectsRes] = await Promise.all([
+      fetch('./data/teams.json'),
+      fetch('./data/prospects.json')
+    ]);
 
-  state.teams = await teamsRes.json();
-  state.prospects = await prospectsRes.json();
+    if (!teamsRes.ok) {
+      throw new Error(`Could not load teams.json (${teamsRes.status})`);
+    }
 
-  renderFilters();
-  render();
+    if (!prospectsRes.ok) {
+      throw new Error(`Could not load prospects.json (${prospectsRes.status})`);
+    }
+
+    state.teams = await teamsRes.json();
+    state.prospects = await prospectsRes.json();
+
+    renderFilters();
+    render();
+  } catch (error) {
+    console.error(error);
+    showFatalError(error.message);
+  }
 }
 
 function renderFilters() {
+  if (!els.position || !els.school) return;
+
   const positions = ['ALL', ...new Set(state.prospects.map(player => player.position))];
   const schools = ['ALL', ...new Set(state.prospects.map(player => player.school))].sort((a, b) => a.localeCompare(b));
 
@@ -91,6 +119,8 @@ function getAvailableProspects() {
 }
 
 function renderCurrentPick() {
+  if (!els.currentPick) return;
+
   const currentTeam = getCurrentTeam();
 
   if (!currentTeam) {
@@ -123,34 +153,41 @@ function renderCurrentPick() {
   `;
 
   const dropzone = document.getElementById('draft-dropzone');
+  const skipButton = document.getElementById('skip-to-top');
 
-  dropzone.addEventListener('dragover', event => {
-    event.preventDefault();
-    dropzone.classList.add('drag-over');
-  });
+  if (dropzone) {
+    dropzone.addEventListener('dragover', event => {
+      event.preventDefault();
+      dropzone.classList.add('drag-over');
+    });
 
-  dropzone.addEventListener('dragleave', () => {
-    dropzone.classList.remove('drag-over');
-  });
+    dropzone.addEventListener('dragleave', () => {
+      dropzone.classList.remove('drag-over');
+    });
 
-  dropzone.addEventListener('drop', event => {
-    event.preventDefault();
-    dropzone.classList.remove('drag-over');
+    dropzone.addEventListener('drop', event => {
+      event.preventDefault();
+      dropzone.classList.remove('drag-over');
 
-    if (state.draggedPlayerId) {
-      draftPlayer(state.draggedPlayerId);
-    }
-  });
+      if (state.draggedPlayerId) {
+        draftPlayer(state.draggedPlayerId);
+      }
+    });
+  }
 
-  document.getElementById('skip-to-top').addEventListener('click', () => {
-    const best = state.prospects.find(player => player.status === 'available');
-    if (best) {
-      draftPlayer(best.id);
-    }
-  });
+  if (skipButton) {
+    skipButton.addEventListener('click', () => {
+      const best = state.prospects.find(player => player.status === 'available');
+      if (best) {
+        draftPlayer(best.id);
+      }
+    });
+  }
 }
 
 function renderQueue() {
+  if (!els.queue) return;
+
   els.queue.innerHTML = state.teams
     .map((team, index) => {
       const draftedPick = state.drafted.find(item => item.pick === team.pick);
@@ -170,6 +207,8 @@ function renderQueue() {
 }
 
 function renderDrafted() {
+  if (!els.drafted) return;
+
   if (state.drafted.length === 0) {
     els.drafted.innerHTML =
       '<div class="empty-state">No picks made yet. Start dragging prospects into the current pick panel.</div>';
@@ -191,6 +230,8 @@ function renderDrafted() {
 }
 
 function renderProspects() {
+  if (!els.prospectGrid) return;
+
   const available = getAvailableProspects();
 
   if (available.length === 0) {
@@ -283,9 +324,14 @@ function resetDraft() {
 }
 
 function updateStats() {
-  const availableCount = state.prospects.filter(player => player.status === 'available').length;
-  els.availableCount.textContent = `${availableCount} available`;
-  els.draftedCount.textContent = `${state.drafted.length} drafted`;
+  if (els.availableCount) {
+    const availableCount = state.prospects.filter(player => player.status === 'available').length;
+    els.availableCount.textContent = `${availableCount} available`;
+  }
+
+  if (els.draftedCount) {
+    els.draftedCount.textContent = `${state.drafted.length} drafted`;
+  }
 }
 
 function render() {
@@ -296,18 +342,41 @@ function render() {
   updateStats();
 }
 
-els.search.addEventListener('input', event => {
-  state.filters.search = event.target.value;
-  renderProspects();
-});
+function bindEvents() {
+  if (els.search) {
+    els.search.addEventListener('input', event => {
+      state.filters.search = event.target.value;
+      renderProspects();
+    });
+  }
 
-els.position.addEventListener('change', event => {
-  state.filters.position = event.target.value;
-  renderProspects();
-});
+  if (els.position) {
+    els.position.addEventListener('change', event => {
+      state.filters.position = event.target.value;
+      renderProspects();
+    });
+  }
 
-els.school.addEventListener('change', event => {
-  state.filters.school = event.target.value;
-  renderProspects();
-});
+  if (els.school) {
+    els.school.addEventListener('change', event => {
+      state.filters.school = event.target.value;
+      renderProspects();
+    });
+  }
 
+  if (els.undo) {
+    els.undo.addEventListener('click', undoPick);
+  }
+
+  if (els.reset) {
+    els.reset.addEventListener('click', resetDraft);
+  }
+}
+
+function init() {
+  cacheElements();
+  bindEvents();
+  loadData();
+}
+
+document.addEventListener('DOMContentLoaded', init);
