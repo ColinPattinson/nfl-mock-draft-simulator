@@ -1,1 +1,53 @@
-NFL Mock Draft Simulator
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NFL Mock Draft Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app">
+    <aside class="panel sidebar">
+      <h2 class="section-title">Draft order</h2>
+      <div id="current-pick"></div>
+      <h2 class="section-title">Round 1 queue</h2>
+      <div id="pick-queue" class="queue-list"></div>
+    </aside>
+
+    <section class="board">
+      <div class="panel hero">
+        <div>
+          <div class="eyebrow">Streamer board</div>
+          <h1>2026 NFL Mock Draft Simulator</h1>
+          <p>Round 1 only, current draft order, top 150 prospects and a visual drag and drop board.</p>
+        </div>
+        <div>
+          <div class="rank-badge" id="available-count">150 available</div>
+          <div class="rank-badge" id="drafted-count">0 drafted</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <input id="player-search" class="search" type="search" placeholder="Search player, school or position">
+        <select id="position-filter" class="control"></select>
+        <select id="school-filter" class="control"></select>
+        <button id="undo-pick" class="btn btn-secondary">Undo</button>
+        <button id="reset-draft" class="btn btn-primary">Reset</button>
+      </div>
+
+      <div id="prospect-grid" class="prospect-grid"></div>
+    </section>
+
+    <aside class="panel drafted-panel">
+      <h2 class="section-title">Selections</h2>
+      <div id="drafted-list" class="drafted-list"></div>
+    </aside>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
