@@ -1,0 +1,226 @@
+[
+  {
+    "pick": 1,
+    "team": "Las Vegas Raiders",
+    "short": "Raiders",
+    "abbrev": "LV",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-las-vegas-raiders-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 2,
+    "team": "New York Jets",
+    "short": "Jets",
+    "abbrev": "NYJ",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-new-york-jets-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 3,
+    "team": "Arizona Cardinals",
+    "short": "Cardinals",
+    "abbrev": "ARI",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-arizona-cardinals-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 4,
+    "team": "Tennessee Titans",
+    "short": "Titans",
+    "abbrev": "TEN",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-tennessee-titans-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 5,
+    "team": "New York Giants",
+    "short": "Giants",
+    "abbrev": "NYG",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-new-york-giants-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 6,
+    "team": "Cleveland Browns",
+    "short": "Browns",
+    "abbrev": "CLE",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-cleveland-browns-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 7,
+    "team": "Washington Commanders",
+    "short": "Commanders",
+    "abbrev": "WAS",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-washington-commanders-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 8,
+    "team": "New Orleans Saints",
+    "short": "Saints",
+    "abbrev": "NO",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-new-orleans-saints-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 9,
+    "team": "Kansas City Chiefs",
+    "short": "Chiefs",
+    "abbrev": "KC",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-kansas-city-chiefs-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 10,
+    "team": "Cincinnati Bengals",
+    "short": "Bengals",
+    "abbrev": "CIN",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-cincinnati-bengals-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 11,
+    "team": "Miami Dolphins",
+    "short": "Dolphins",
+    "abbrev": "MIA",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-miami-dolphins-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 12,
+    "team": "Dallas Cowboys",
+    "short": "Cowboys",
+    "abbrev": "DAL",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-dallas-cowboys-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 13,
+    "team": "Los Angeles Rams (from Falcons)",
+    "short": "Rams",
+    "abbrev": "LAR",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-los-angeles-rams-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 14,
+    "team": "Baltimore Ravens",
+    "short": "Ravens",
+    "abbrev": "BAL",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-baltimore-ravens-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 15,
+    "team": "Tampa Bay Buccaneers",
+    "short": "Buccaneers",
+    "abbrev": "TB",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-tampa-bay-buccaneers-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 16,
+    "team": "New York Jets (from Colts)",
+    "short": "Jets",
+    "abbrev": "NYJ",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-new-york-jets-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 17,
+    "team": "Detroit Lions",
+    "short": "Lions",
+    "abbrev": "DET",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-detroit-lions-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 18,
+    "team": "Minnesota Vikings",
+    "short": "Vikings",
+    "abbrev": "MIN",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-minnesota-vikings-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 19,
+    "team": "Carolina Panthers",
+    "short": "Panthers",
+    "abbrev": "CAR",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-carolina-panthers-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 20,
+    "team": "Dallas Cowboys (from Packers)",
+    "short": "Cowboys",
+    "abbrev": "DAL",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-dallas-cowboys-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 21,
+    "team": "Pittsburgh Steelers",
+    "short": "Steelers",
+    "abbrev": "PIT",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-pittsburgh-steelers-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 22,
+    "team": "Los Angeles Chargers",
+    "short": "Chargers",
+    "abbrev": "LAC",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-los-angeles-chargers-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 23,
+    "team": "Philadelphia Eagles",
+    "short": "Eagles",
+    "abbrev": "PHI",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-philadelphia-eagles-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 24,
+    "team": "Cleveland Browns (from Jaguars)",
+    "short": "Browns",
+    "abbrev": "CLE",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-cleveland-browns-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 25,
+    "team": "Chicago Bears",
+    "short": "Bears",
+    "abbrev": "CHI",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-chicago-bears-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 26,
+    "team": "Buffalo Bills",
+    "short": "Bills",
+    "abbrev": "BUF",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-buffalo-bills-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 27,
+    "team": "San Francisco 49ers",
+    "short": "49ers",
+    "abbrev": "SF",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-san-francisco-49ers-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 28,
+    "team": "Houston Texans",
+    "short": "Texans",
+    "abbrev": "HOU",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-houston-texans-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 29,
+    "team": "Los Angeles Rams",
+    "short": "Rams",
+    "abbrev": "LAR",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-los-angeles-rams-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 30,
+    "team": "Denver Broncos",
+    "short": "Broncos",
+    "abbrev": "DEN",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-denver-broncos-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 31,
+    "team": "New England Patriots",
+    "short": "Patriots",
+    "abbrev": "NE",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-new-england-patriots-team-logo-2-768x768.png"
+  },
+  {
+    "pick": 32,
+    "team": "Seattle Seahawks",
+    "short": "Seahawks",
+    "abbrev": "SEA",
+    "logo": "https://loodibee.com/wp-content/uploads/nfl-seattle-seahawks-team-logo-2-768x768.png"
+  }
+]
