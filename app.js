@@ -152,9 +152,11 @@ function renderProspects() {
 
   els.prospectGrid.innerHTML = available.map(player => `
     <article class="prospect-card" draggable="true" data-player-id="${player.id}">
-      <div class="prospect-image">
-        <img src="${player.image}" alt="${player.name}">
-      </div>
+    <div class="prospect-image">
+      ${player.image
+        ? `<img src="${player.image}" alt="${player.name}">`
+        : `<div class="player-placeholder" aria-label="${player.name}">${player.name.split(' ').map(part => part[0]).slice(0,2).join('')}</div>`}
+    </div>
       <div class="prospect-content">
         <div class="rank-badge">#${player.rank}</div>
         <h3 class="prospect-name">${player.name}</h3>
