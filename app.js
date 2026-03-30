@@ -126,9 +126,8 @@ function renderCurrentPick() {
   if (!currentTeam) {
     els.currentPick.innerHTML = `
       <div class="current-pick">
-        <div class="eyebrow">Round complete</div>
+        <div class="pick-label">Round complete</div>
         <h2 class="pick-team">All 32 picks are in</h2>
-        <p class="status-line">Use Undo to step back or Reset Draft to start over.</p>
       </div>
     `;
     return;
@@ -136,13 +135,11 @@ function renderCurrentPick() {
 
   els.currentPick.innerHTML = `
     <div class="current-pick">
-      <div class="eyebrow">On the clock</div>
+      <div class="pick-label">On the clock · Pick ${currentTeam.pick}</div>
       <div class="current-pick-card">
         <img src="${currentTeam.logo}" alt="${currentTeam.short} logo">
         <div>
-          <div class="pick-label">Pick ${currentTeam.pick}</div>
           <h2 class="pick-team">${currentTeam.team}</h2>
-          <div class="pick-meta">Drag a player here or use Draft now</div>
         </div>
       </div>
       <div class="dropzone" id="draft-dropzone">Drop prospect here to make the pick</div>
@@ -198,7 +195,7 @@ function renderQueue() {
           <div>
             <div class="queue-pick">Pick ${team.pick}</div>
             <div class="queue-team">${team.team}</div>
-            <div class="queue-pick">${draftedPick ? `Selected: ${draftedPick.player.name}` : 'Awaiting pick'}</div>
+            <div class="queue-pick">${draftedPick ? draftedPick.player.name : 'Awaiting pick'}</div>
           </div>
         </div>
       `;
@@ -253,8 +250,6 @@ function renderProspects() {
           <div class="prospect-meta">
             <span class="meta-pill">${player.school}</span>
           </div>
-
-          <div class="prospect-school">Available for selection</div>
 
           <div class="card-actions">
             <button class="btn btn-primary" data-draft-id="${player.id}">Draft now</button>
